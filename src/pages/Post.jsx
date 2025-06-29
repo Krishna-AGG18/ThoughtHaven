@@ -11,8 +11,9 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
-
-    const isAuthor = post && userData ? post.userId === userData.$id : false;
+    console.log(userData);
+    
+    const isAuthor = post && userData ? post.userId === userData.userData.$id : false;
 
     useEffect(() => {
         if (slug) {
