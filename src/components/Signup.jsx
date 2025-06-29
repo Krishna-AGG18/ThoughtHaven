@@ -14,11 +14,6 @@ function Signup() {
     const status = useSelector(state => state.auth.status)
 
 
-    useEffect(() => {
-        if (status) navigate("/");
-    }, [status, navigate]);
-
-
     const signup = async (data) => {
         setError("")
         try {
