@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 400px;
+    --breakpoint-xsm: 300px;
+    --color-coral: #CC5500;
+}
