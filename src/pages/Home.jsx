@@ -23,7 +23,7 @@ function Home() {
                     <div className="flex flex-wrap h-[80dvh]">
                         <div className="p-2 w-full">
                             <>
-                                {status ? <p>No Posts to show</p> :
+                                {status ? <p className='text-coral'>No Posts to show</p> :
                                     <div className='flex h-[100%] items-center justify-between max-md:flex-col-reverse max-md:justify-center'>
                                         <div className='flex flex-col max-md:items-center p-4 '>
                                             <h1 className="text-6xl font-bold text-white max-sm:text-4xl max-md:text-center">
