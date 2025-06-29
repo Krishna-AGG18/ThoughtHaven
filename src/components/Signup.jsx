@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
 function Signup() {
+    const status = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [error, setError] = useState("")
     const { register, handleSubmit } = useForm()
-    const status = useSelector(state => state.auth.status)
 
 
     useEffect(() => {
@@ -20,19 +20,18 @@ function Signup() {
 
 
     const signup = async (data) => {
-        setError("")
+        setError("");
         try {
-            const newUser = await authService.createAccount(data)
+            const newUser = await authService.createAccount(data);
             if (newUser) {
-                const userData = await authService.getCurrentUser()
-                if (userData) {
-                    dispatch(login(userData))
-                    navigate("/")}
+                alert("Account created successfully! Please log in.");
+                navigate("/login");
             }
         } catch (error) {
-            setError(error)
+            setError(error.message || "Signup failed");
         }
-    }
+    };
+
 
     return (
         <div className="flex items-center justify-center">

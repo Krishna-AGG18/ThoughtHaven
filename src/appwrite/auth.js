@@ -13,19 +13,14 @@ export class AuthService {
         this.account = new Account(this.client);
     }
 
-    async createAccount({email, password, name}){
-         try{
-            const userAccount = await this.account.create(ID.unique(), email, password, name)
-            if(userAccount){
-                // call another method (login ke liye, make user login if his account is created)
-                await this.login({email, password});
-            }else{
-                return userAccount;
-            }
-         }catch(error){
-            throw error;
-         }
+    async createAccount({ email, password, name }) {
+    try {
+        return await this.account.create(ID.unique(), email, password, name);
+    } catch (error) {
+        throw error;
     }
+}
+
 
     async login({email, password}){
         try {
