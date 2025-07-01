@@ -34,27 +34,31 @@ function Signup() {
 
 
     return (
-        <div className="flex items-center justify-center">
-            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+        <div className="flex items-center justify-center w-full py-8 bg-[url(https://i.pinimg.com/originals/c6/4a/d7/c64ad796870df5a6c33be02a557677c9.gif)] bg-cover bg-center min-h-screen">
+            <div className="mx-auto w-full max-w-lg bg-black/60 backdrop-blur-md sm:px-10 px-6 max-sm:w-11/12 rounded-xl py-10 border border-gray-700 shadow-lg transition-all duration-300">
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
                         <Logo width="100%" />
                     </span>
                 </div>
-                <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
-                <p className="mt-2 text-center text-base text-black/60">
+                <h2 className="text-center text-xl sm:text-2xl font-bold leading-tight text-white">
+                    Sign up to create account
+                </h2>
+                <p className="mt-2 text-center text-sm sm:text-base text-gray-400">
                     Already have an account?&nbsp;
                     <Link
                         to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                        className="font-medium text-blue-400 transition-all duration-200 hover:underline"
                     >
                         Sign In
                     </Link>
                 </p>
-                {error && <p className="text-red-600 mt-8 text-center">{String(error)}</p>}
+                {error && (
+                    <p className="text-red-500 mt-8 text-center">{String(error)}</p>
+                )}
 
-                <form onSubmit={handleSubmit(signup)}>
-                    <div className='space-y-5'>
+                <form onSubmit={handleSubmit(signup)} className="mt-8 py-6">
+                    <div className="space-y-5">
                         <Input
                             label="Full Name: "
                             placeholder="Enter your full name"
@@ -66,30 +70,37 @@ function Signup() {
                             label="Email: "
                             placeholder="Enter your email"
                             type="email"
+                            autoComplete="email"
                             {...register("email", {
                                 required: true,
                                 validate: {
-                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                    matchPattern: (value) =>
+                                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                                         "Email address must be a valid address",
-                                }
+                                },
                             })}
                         />
                         <Input
                             label="Password: "
                             type="password"
                             placeholder="Enter your password"
+                            autoComplete="new-password"
                             {...register("password", {
                                 required: true,
                             })}
                         />
-                        <Button type="submit" className="w-full">
+                        <Button
+                            type="submit"
+                            className="w-full bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
+                        >
                             Create Account
                         </Button>
+
                     </div>
                 </form>
             </div>
-
         </div>
+
     )
 }
 
