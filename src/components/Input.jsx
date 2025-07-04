@@ -12,7 +12,7 @@ const Input = React.forwardRef(
         return (
             <div className='w-full'>
                 {label && <label
-                    className='inline-block mb-1 pl-1 text-coral text-shadow-coral'
+                    className='inline-block mb-1 pl-1 text-coral text-shadow-coral max-sm:mt-1'
                     htmlFor={id}>
                     {label}
                 </label>
