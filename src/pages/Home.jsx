@@ -39,9 +39,9 @@ function Home() {
                                                 Sign in to begin your journey.
                                             </p>
                                             <Link to="/login">
-                                            <button className="mt-6 w-fit cursor-pointer px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
-                                                → Sign In to Explore
-                                            </button>
+                                                <button className="mt-6 w-fit cursor-pointer px-6 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
+                                                    → Sign In to Explore
+                                                </button>
                                             </Link>
                                         </div>
                                         <div>
@@ -66,7 +66,26 @@ function Home() {
                         <div key={post.$id} className="p-2 w-1/4">
                             <PostCard {...post} />
                         </div>
-                    ))) : <>You Have Logged Out</>
+                    ))) : <>
+                        <div className="min-h-screen w-full flex items-center justify-center py-12 px-4 bg-[url(https://i.pinimg.com/originals/21/f3/5e/21f35e59c8f287e9e1460e69702ccadb.gif)] bg-no-repeat bg-cover bg-center ">
+                            <div className="w-full max-w-lg bg-[rgba(255,255,255,0.08)] backdrop-blur-lg border border-[rgba(255,255,255,0.15)] rounded-2xl p-10 md:p-12 max-xs:p-4 transform transition-transform duration-300 hover:scale-102 animate-fade-in">
+                                <h2 className="text-3xl md:text-4xl font-bold text-white text-center max-xs:text-2xl">
+                                    You Have Logged Out
+                                </h2>
+                                <p className="text-neutral-200 text-center mt-6 md:text-lg max-xs:text-sm">
+                                    Thank you for visiting! Log in again to explore your blog.
+                                </p>
+                                <div className="mt-8 flex justify-center">
+                                    <a
+                                        href="/login"
+                                        className="bg-blue-600 text-white font-semibold py-2.5 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 max-xs:text-sm max-xs:py-2 max-xs:px-4"
+                                    >
+                                        Log In
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </>
                     }
                 </div>
             </Container>
